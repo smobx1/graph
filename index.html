@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      
+      
+      
+    
+      <link href="#" class="css-color" rel="stylesheet">
+   <!-- test -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.0/vis.min.css">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.0/vis.min.js"></script>
+      <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+      <style>
+			canvas{
+				background-color:#333;
+			}
+      </style>
+
+   <script type="text/javascript">
+
+
+function draw(){
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+    {id: 1, shape:'image', image:'http://icons.veryicon.com/png/Object/Icon%20Shop/Shop%20Coffee%20cream.png', label: 'Current Location'},
+
+    {id: 2, shape:'image', image:'http://icons.iconarchive.com/icons/graphicloads/food-drink/256/coffee-bean-icon.png', label: 'Coffe Price'},
+    {id: 3, shape:'image', image:'https://cdn0.iconfinder.com/data/icons/sports-and-fitness/512/breakfast_food_nutrition_diet_drink_healthy_natural_healthy_pack_milk_juice_fresh_products_water_organic_lifestyle_eat_eating_flat_design_icon-512.png', label: 'Milk Price'},
+    
+    {id: 4, shape:'image', image:'https://freeiconshop.com/wp-content/uploads/edd/person-flat.png',label: 'GDP per Capita'},
+
+    {id: 5, shape:'image', image:'https://www.youtube.com/yt/space/media/images/yt-space-icon-london.png', label: 'London'},
+    {id: 6, shape:'image', image:'https://www.youtube.com/yt/space/media/images/yt-space-icon-newyork.png', label: 'New York'},
+    
+    {id: 7, shape:'image', image:'http://www.iconarchive.com/download/i86107/graphicloads/filetype/pdf.ico', label: 'Rent'},
+    {id: 8, shape:'image', image:'http://www.iconarchive.com/download/i81793/blaugrana-tez/icon-shop/Shop-Coffee-brown.ico', label: 'New Location'}
+  ]);
+
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 1, to: 2},
+    {from: 1, to: 3},
+    {from: 2, to: 4},
+    {from: 3, to: 4},
+    {from: 4, to: 5},
+    {from: 4, to: 6},
+    {from: 5, to: 7},
+    {from: 6, to: 7},
+    {from: 7, to: 8}
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {
+      "interaction": {
+       "zoomView": false
+     },
+     nodes:{
+      color:{
+        border:'#fff'
+      },
+      font:{
+        color:'#eeeeee'
+      }
+      
+     }
+     
+  };
+  var network = new vis.Network(container, data, options);
+
+}
+</script>
+
+   </head>
+   <body   onload="draw()">
+        <header>
+                     <!-- protect -->
+                        <div id="mynetwork" style="height:500px !important;" >
+                           <div class="vis-network" tabindex="900" style="z-index:99999999; position: relative; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"><canvas width="500px" height="500px" style="position: relative; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"></canvas></div>
+                        </div>
+                     <!-- protect -->
+            
+      </header>
+    </body>
+
+
+
+
+
+   
+   
